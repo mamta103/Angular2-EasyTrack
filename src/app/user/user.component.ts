@@ -15,8 +15,14 @@ export class UserComponent {
   get imagepath() {
     return 'images/users/' + this.selectedUser.avatar;
   }
-
-  selectUser(){
-    console.log("Clicked!");
+  /*
+  1.Previously, the value at the top was changing only once, even after multiple clicks or user detail updates.
+  2.Now, the value updates dynamically every time the click event is triggered or user details change.
+  3.To ensure consistent updates, the value is stored locally for immediate and accurate changes.
+*/
+  
+  selectUser() {
+    const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
+    this.selectedUser = DUMMY_USERS[randomIndex];
   }
 }
