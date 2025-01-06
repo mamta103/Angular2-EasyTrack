@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from "./header/header.component";
-import { UserComponent } from "./user/user.component";
+import { HeaderComponent } from './header/header.component';
+import { UserComponent } from './user/user.component';
 import { DUMMY_USERS } from '../dummy-users';
 
 @Component({
@@ -9,8 +8,12 @@ import { DUMMY_USERS } from '../dummy-users';
   standalone: true,
   imports: [HeaderComponent, UserComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
-  users  = DUMMY_USERS;
+  users = DUMMY_USERS;
+
+  onSelect(id: string) {
+    console.log('Selected ID is ' + id);
+  }
 }
