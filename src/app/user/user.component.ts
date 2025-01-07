@@ -1,5 +1,6 @@
 import { Component, Input, output, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
+import { TasksComponent } from "../tasks/tasks.component";
 
 @Component({
   selector: 'app-user',
