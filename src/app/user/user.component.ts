@@ -1,6 +1,6 @@
 import { Component, Input, output, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
-import { TasksComponent } from "../tasks/tasks.component";
+import { TasksComponent } from '../tasks/tasks.component';
 
 @Component({
   selector: 'app-user',
@@ -10,17 +10,22 @@ import { TasksComponent } from "../tasks/tasks.component";
   styleUrl: './user.component.css',
 })
 export class UserComponent {
-  @Input({ required: true }) id!: string;
-  @Input({ required: true }) avatar!: string;
-  @Input({ required: true }) name!: string;
+  @Input({ required: true }) users!: {
+    id: string;
+    avatar: string;
+    name: string;
+  };
+
+  // @Input({ required: true }) id!: string;
+  // @Input({ required: true }) avatar!: string;
+  // @Input({ required: true }) name!: string;
   @Output() select = new EventEmitter<string>();
 
-
   get imagePath() {
-    return 'images/users/' + this.avatar;
+    return 'images/users/' + this.users.avatar;
   }
 
   onSelectUser() {
-    this.select.emit(this.id);
+    this.select.emit(this.users.id);
   }
 }
