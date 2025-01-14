@@ -27,7 +27,6 @@ export class NewTaskComponent {
   }
 
   onSubmit() {
-    console.log("onSubmit Calls");
     this.add.emit({
       title: this.enteredTitle,
       summary: this.enteredSummary,
