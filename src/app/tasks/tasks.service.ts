@@ -1,6 +1,9 @@
-import { NewTaskData } from './task/task.model';
+import { Injectable } from '@angular/core';
+import { type NewTaskData } from './task/task.model';
 
-class TaskService {
+@Injectable({providedIn: 'root'})
+export class TasksService {
+
   private tasks = [
     {
       id: 't1',
@@ -27,12 +30,12 @@ class TaskService {
     },
   ];
 
-  getUsersTask(userId: string) {
+  getUsersTasks(userId: string) {
     return this.tasks.filter((task) => task.userId === userId);
   }
 
   addTask(taskData: NewTaskData, userId: string) {
-    return this.tasks.unshift({
+    return this.tasks.push({
       id: new Date().getTime().toString(),
       userId: userId,
       title: taskData.title,
@@ -42,6 +45,6 @@ class TaskService {
   }
 
   removeTask(id: string) {
-     (this.tasks = this.tasks.filter((task) => task.id !== id));
+     this.tasks = this.tasks.filter((task) => task.id !== id);
   }
 }
